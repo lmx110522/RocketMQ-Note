@@ -1,0 +1,116 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.rocketmq.client.latency;
+
+import org.apache.rocketmq.client.impl.producer.TopicPublishInfo;
+import org.apache.rocketmq.client.log.ClientLogger;
+import org.apache.rocketmq.logging.InternalLogger;
+import org.apache.rocketmq.common.message.MessageQueue;
+
+public class MQFaultStrategy {
+    private final static InternalLogger log = ClientLogger.getLog();
+    private final LatencyFaultTolerance<String> latencyFaultTolerance = new LatencyFaultToleranceImpl();
+
+    private boolean sendLatencyFaultEnable = false;
+
+    private long[] latencyMax = {50L, 100L, 550L, 1000L, 2000L, 3000L, 15000L};
+    private long[] notAvailableDuration = {0L, 0L, 30000L, 60000L, 120000L, 180000L, 600000L};
+
+    public long[] getNotAvailableDuration() {
+        return notAvailableDuration;
+    }
+
+    public void setNotAvailableDuration(final long[] notAvailableDuration) {
+        this.notAvailableDuration = notAvailableDuration;
+    }
+
+    public long[] getLatencyMax() {
+        return latencyMax;
+    }
+
+    public void setLatencyMax(final long[] latencyMax) {
+        this.latencyMax = latencyMax;
+    }
+
+    public boolean isSendLatencyFaultEnable() {
+        return sendLatencyFaultEnable;
+    }
+
+    public void setSendLatencyFaultEnable(final boolean sendLatencyFaultEnable) {
+        this.sendLatencyFaultEnable = sendLatencyFaultEnable;
+    }
+
+    public MessageQueue selectOneMessageQueue(final TopicPublishInfo tpInfo, final String lastBrokerName) {
+        if (this.sendLatencyFaultEnable) {
+            try {
+                int index = tpInfo.getSendWhichQueue().getAndIncrement();
+                for (int i = 0; i < tpInfo.getMessageQueueList().size(); i++) {
+                    int pos = Math.abs(index++) % tpInfo.getMessageQueueList().size();
+                    if (pos < 0)
+                        pos = 0;
+                    MessageQueue mq = tpInfo.getMessageQueueList().get(pos);
+                    // 判断选中的消息队列所在的broke是否可用
+                    if (latencyFaultTolerance.isAvailable(mq.getBrokerName())) {
+                        // 如果是第一次选择消息队列或者上次选择的消息队列所在的broker可用，就返回选择的消息队列
+                        if (null == lastBrokerName || mq.getBrokerName().equals(lastBrokerName))
+                            return mq;
+                    }
+                }
+                // 如果恰巧不是第一次选择消息队列并且选择broker是上次不可用的，就从FaultItem集合随机找一个
+                final String notBestBroker = latencyFaultTolerance.pickOneAtLeast();
+                int writeQueueNums = tpInfo.getQueueIdByBroker(notBestBroker);
+                if (writeQueueNums > 0) {
+                    final MessageQueue mq = tpInfo.selectOneMessageQueue();
+                    // 如果brokerName存在并且对应的写队列个数大于0
+                    if (notBestBroker != null) {
+                        mq.setBrokerName(notBestBroker);
+                        mq.setQueueId(tpInfo.getSendWhichQueue().getAndIncrement() % writeQueueNums);
+                    }
+                    return mq;
+                } else {
+                    latencyFaultTolerance.remove(notBestBroker);
+                }
+            } catch (Exception e) {
+                log.error("Error occurred when selecting message queue", e);
+            }
+
+            return tpInfo.selectOneMessageQueue();
+        }
+
+        return tpInfo.selectOneMessageQueue(lastBrokerName);
+    }
+
+    public void updateFaultItem(final String brokerName, final long currentLatency, boolean isolation) {
+        // 判断是否开启broker延迟机制
+        if (this.sendLatencyFaultEnable) {
+            long duration = computeNotAvailableDuration(isolation ? 30000 : currentLatency);
+            this.latencyFaultTolerance.updateFaultItem(brokerName, currentLatency, duration);
+        }
+    }
+
+    // 根据发送消息延迟时间来得到故障规避时长
+    private long computeNotAvailableDuration(final long currentLatency) {
+        for (int i = latencyMax.length - 1; i >= 0; i--) {
+            // 倒 循环查找 直到找到比latencyMax数组中元素小的值
+            if (currentLatency >= latencyMax[i])
+                return this.notAvailableDuration[i];
+        }
+
+        return 0;
+    }
+}

@@ -1,0 +1,16 @@
+/Users/limaozhan/Downloads/rocketmq-all-4.3.2/client/src/test/java/org/apache/rocketmq/client/latency/LatencyFaultToleranceImplTest.java
+/Users/limaozhan/Downloads/rocketmq-all-4.3.2/client/src/test/java/org/apache/rocketmq/client/consumer/rebalance/AllocateMessageQueueConsitentHashTest.java
+/Users/limaozhan/Downloads/rocketmq-all-4.3.2/client/src/test/java/org/apache/rocketmq/client/consumer/store/LocalFileOffsetStoreTest.java
+/Users/limaozhan/Downloads/rocketmq-all-4.3.2/client/src/test/java/org/apache/rocketmq/client/ValidatorsTest.java
+/Users/limaozhan/Downloads/rocketmq-all-4.3.2/client/src/test/java/org/apache/rocketmq/client/impl/factory/MQClientInstanceTest.java
+/Users/limaozhan/Downloads/rocketmq-all-4.3.2/client/src/test/java/org/apache/rocketmq/client/impl/MQClientAPIImplTest.java
+/Users/limaozhan/Downloads/rocketmq-all-4.3.2/client/src/test/java/org/apache/rocketmq/client/common/ThreadLocalIndexTest.java
+/Users/limaozhan/Downloads/rocketmq-all-4.3.2/client/src/test/java/org/apache/rocketmq/client/consumer/store/RemoteBrokerOffsetStoreTest.java
+/Users/limaozhan/Downloads/rocketmq-all-4.3.2/client/src/test/java/org/apache/rocketmq/client/impl/consumer/DefaultMQPushConsumerImplTest.java
+/Users/limaozhan/Downloads/rocketmq-all-4.3.2/client/src/test/java/org/apache/rocketmq/client/consumer/DefaultMQPushConsumerTest.java
+/Users/limaozhan/Downloads/rocketmq-all-4.3.2/client/src/test/java/org/apache/rocketmq/client/impl/consumer/RebalancePushImplTest.java
+/Users/limaozhan/Downloads/rocketmq-all-4.3.2/client/src/test/java/org/apache/rocketmq/client/producer/DefaultMQProducerTest.java
+/Users/limaozhan/Downloads/rocketmq-all-4.3.2/client/src/test/java/org/apache/rocketmq/client/consumer/rebalance/AllocateMachineRoomNearByTest.java
+/Users/limaozhan/Downloads/rocketmq-all-4.3.2/client/src/test/java/org/apache/rocketmq/client/producer/selector/SelectMessageQueueByHashTest.java
+/Users/limaozhan/Downloads/rocketmq-all-4.3.2/client/src/test/java/org/apache/rocketmq/client/impl/consumer/ProcessQueueTest.java
+/Users/limaozhan/Downloads/rocketmq-all-4.3.2/client/src/test/java/org/apache/rocketmq/client/consumer/DefaultMQPullConsumerTest.java

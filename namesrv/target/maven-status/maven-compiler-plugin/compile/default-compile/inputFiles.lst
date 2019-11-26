@@ -1,0 +1,8 @@
+/Users/limaozhan/Downloads/rocketmq-all-4.3.2/namesrv/src/main/java/org/apache/rocketmq/namesrv/NamesrvController.java
+/Users/limaozhan/Downloads/rocketmq-all-4.3.2/namesrv/src/main/java/org/apache/rocketmq/namesrv/kvconfig/KVConfigSerializeWrapper.java
+/Users/limaozhan/Downloads/rocketmq-all-4.3.2/namesrv/src/main/java/org/apache/rocketmq/namesrv/kvconfig/KVConfigManager.java
+/Users/limaozhan/Downloads/rocketmq-all-4.3.2/namesrv/src/main/java/org/apache/rocketmq/namesrv/routeinfo/BrokerHousekeepingService.java
+/Users/limaozhan/Downloads/rocketmq-all-4.3.2/namesrv/src/main/java/org/apache/rocketmq/namesrv/processor/ClusterTestRequestProcessor.java
+/Users/limaozhan/Downloads/rocketmq-all-4.3.2/namesrv/src/main/java/org/apache/rocketmq/namesrv/NamesrvStartup.java
+/Users/limaozhan/Downloads/rocketmq-all-4.3.2/namesrv/src/main/java/org/apache/rocketmq/namesrv/processor/DefaultRequestProcessor.java
+/Users/limaozhan/Downloads/rocketmq-all-4.3.2/namesrv/src/main/java/org/apache/rocketmq/namesrv/routeinfo/RouteInfoManager.java
