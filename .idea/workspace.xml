@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="646e8326-938a-4d3b-8952-4b91a662cbde" name="Default Changelist" comment="" />
+    <list default="true" id="646e8326-938a-4d3b-8952-4b91a662cbde" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/store/target/" />
@@ -55,7 +57,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/common/src/main/java/org/apache/rocketmq/common/message/MessageDecoder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="566">
+            <state relative-caret-position="164">
               <caret line="434" column="23" selection-start-line="434" selection-start-column="23" selection-end-line="434" selection-end-column="23" />
             </state>
           </provider>
@@ -117,6 +119,9 @@
       <find>RemotingCommand</find>
       <find>MessageBatch</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -183,6 +188,7 @@
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -372,17 +378,17 @@
       <workItem from="1574320779519" duration="20582000" />
       <workItem from="1574433591897" duration="1074000" />
       <workItem from="1574519124828" duration="356000" />
-      <workItem from="1574648251119" duration="13328000" />
+      <workItem from="1574648251119" duration="13702000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77490000" />
+    <option name="totallyTimeSpent" value="77864000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49566296" visible="true" weight="0.25894135" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49566296" visible="true" weight="0.25894135" />
       <window_info id="Structure" order="1" sideWeight="0.5043371" side_tool="true" weight="0.28898427" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -399,7 +405,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32961586" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32961586" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -849,7 +855,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/common/src/main/java/org/apache/rocketmq/common/message/MessageDecoder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="566">
+        <state relative-caret-position="164">
           <caret line="434" column="23" selection-start-line="434" selection-start-column="23" selection-end-line="434" selection-end-column="23" />
         </state>
       </provider>
