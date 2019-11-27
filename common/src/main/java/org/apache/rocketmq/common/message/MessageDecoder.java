@@ -412,6 +412,11 @@ public class MessageDecoder {
         return map;
     }
 
+    /**
+     * 编码消息
+     * @param message
+     * @return
+     */
     public static byte[] encodeMessage(Message message) {
         //only need flag, body, properties
         byte[] body = message.getBody();
@@ -422,12 +427,12 @@ public class MessageDecoder {
         //note properties length must not more than Short.MAX
         short propertiesLength = (short) propertiesBytes.length;
         int sysFlag = message.getFlag();
-        int storeSize = 4 // 1 TOTALSIZE
-            + 4 // 2 MAGICCOD
-            + 4 // 3 BODYCRC
+        int storeSize = 4 // 1 TOTALSIZE 总长度
+            + 4 // 2 MAGICCOD 魔数
+            + 4 // 3 BODYCRC bode CRC
             + 4 // 4 FLAG
-            + 4 + bodyLen // 4 BODY
-            + 2 + propertiesLength;
+            + 4 + bodyLen // 4 BODY body长度
+            + 2 + propertiesLength; // 属性长度
         ByteBuffer byteBuffer = ByteBuffer.allocate(storeSize);
         // 1 TOTALSIZE
         byteBuffer.putInt(storeSize);

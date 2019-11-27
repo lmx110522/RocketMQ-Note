@@ -26,6 +26,7 @@ public class PutMessageReentrantLock implements PutMessageLock {
 
     @Override
     public void lock() {
+        // 通过重入锁
         putMessageNormalLock.lock();
     }
 

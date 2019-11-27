@@ -535,14 +535,14 @@ public class CommitLog {
         AppendMessageResult result = null;
 
         StoreStatsService storeStatsService = this.defaultMessageStore.getStoreStatsService();
-
+        // 主要用于存入consumeQueueTable 其中一个Topic对应一个ConcurrentHashMap(key表示queueId,value表示consumeQueue)
         String topic = msg.getTopic();
         int queueId = msg.getQueueId();
 
         final int tranType = MessageSysFlag.getTransactionValue(msg.getSysFlag());
         if (tranType == MessageSysFlag.TRANSACTION_NOT_TYPE
             || tranType == MessageSysFlag.TRANSACTION_COMMIT_TYPE) {
-            // Delay Delivery
+            // Delay Delivery 判断延迟级别
             if (msg.getDelayTimeLevel() > 0) {
                 if (msg.getDelayTimeLevel() > this.defaultMessageStore.getScheduleMessageService().getMaxDelayLevel()) {
                     msg.setDelayTimeLevel(this.defaultMessageStore.getScheduleMessageService().getMaxDelayLevel());
@@ -564,7 +564,7 @@ public class CommitLog {
         long eclipseTimeInLock = 0;
         MappedFile unlockMappedFile = null;
         MappedFile mappedFile = this.mappedFileQueue.getLastMappedFile();
-
+        // 写入Commitlog之前，先申请putMessageLock，也就是存储到Commitlog文件中是串行的
         putMessageLock.lock(); //spin or ReentrantLock ,depending on store config
         try {
             long beginLockTimestamp = this.defaultMessageStore.getSystemClock().now();
@@ -573,7 +573,7 @@ public class CommitLog {
             // Here settings are stored timestamp, in order to ensure an orderly
             // global
             msg.setStoreTimestamp(beginLockTimestamp);
-
+            // 如果当前目录下不存在任何文件 说明第一次消息发送   或者  当前的文件已经写满了
             if (null == mappedFile || mappedFile.isFull()) {
                 mappedFile = this.mappedFileQueue.getLastMappedFile(0); // Mark: NewFile may be cause noise
             }
@@ -1412,6 +1412,7 @@ public class CommitLog {
         }
 
         private void resetByteBuffer(final ByteBuffer byteBuffer, final int limit) {
+            // 反转此缓冲区，将限制设置为当前位置，然后将位置设置为 0
             byteBuffer.flip();
             byteBuffer.limit(limit);
         }

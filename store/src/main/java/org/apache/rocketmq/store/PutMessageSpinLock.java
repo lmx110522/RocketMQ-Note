@@ -31,6 +31,7 @@ public class PutMessageSpinLock implements PutMessageLock {
         do {
             flag = this.putMessageSpinLock.compareAndSet(true, false);
         }
+        // 通过CAS 直到成功
         while (!flag);
     }
 
