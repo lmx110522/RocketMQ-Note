@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="646e8326-938a-4d3b-8952-4b91a662cbde" name="Default Changelist" comment="提交之前的注释部分">
+    <list default="true" id="646e8326-938a-4d3b-8952-4b91a662cbde" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/apache/rocketmq/common/message/MessageDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/apache/rocketmq/common/message/MessageDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/org/apache/rocketmq/store/CommitLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/org/apache/rocketmq/store/CommitLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/org/apache/rocketmq/store/DefaultMessageStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/org/apache/rocketmq/store/DefaultMessageStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/org/apache/rocketmq/store/MappedFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/org/apache/rocketmq/store/MappedFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/org/apache/rocketmq/store/MappedFileQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/org/apache/rocketmq/store/MappedFileQueue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/org/apache/rocketmq/store/PutMessageReentrantLock.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/org/apache/rocketmq/store/PutMessageReentrantLock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/org/apache/rocketmq/store/PutMessageSpinLock.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/org/apache/rocketmq/store/PutMessageSpinLock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/org/apache/rocketmq/store/config/MessageStoreConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/org/apache/rocketmq/store/config/MessageStoreConfig.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -363,12 +354,20 @@
       <workItem from="1574320779519" duration="20582000" />
       <workItem from="1574433591897" duration="1074000" />
       <workItem from="1574519124828" duration="356000" />
-      <workItem from="1574648251119" duration="24009000" />
+      <workItem from="1574648251119" duration="24074000" />
     </task>
+    <task id="LOCAL-00001" summary="2019-11-27增加消息存储规律代码的注释">
+      <created>1574842559956</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1574842559956</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88171000" />
+    <option name="totallyTimeSpent" value="88236000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="0" width="1920" height="1080" extended-state="0" />
@@ -409,7 +408,8 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="2019-11-27增加消息存储规律代码的注释" />
+    <option name="LAST_COMMIT_MESSAGE" value="2019-11-27增加消息存储规律代码的注释" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/common/src/main/java/org/apache/rocketmq/common/MixAll.java">
